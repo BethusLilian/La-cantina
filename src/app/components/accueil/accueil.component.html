@@ -1,0 +1,15 @@
+<div id="accueil">
+    @if(this.generatedMeal){
+    <div class="repas">
+        <h3>Vous pouvez faire un repas avec les ingrédients suivants :</h3>
+        <p>{{ this.generatedMeal.protein }}</p>
+        <p>{{ this.generatedMeal.legume }}</p>
+        <p>{{ this.generatedMeal.feculent }}</p>
+        <p>Bonus : {{ this.generatedMeal.autre }}</p>
+    </div>
+    }
+    
+    <p>Cliquer sur le bouton pour génerer un repas.</p>
+    <br>
+    <button (click)="generateMeal()">Générer !</button>
+</div>

@@ -1,7 +1,29 @@
 #accueil{
  margin-bottom: 64px;
+ text-align: center;
 }
 
-.repas  {
-    margin: 80px;
+.repasContainer  {
+    margin:80px auto; 
+    width: 500px;
+}
+
+.listeRepas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 64px;
+}
+
+.repas{
+    display: block;
+    text-align: left
+}
+
+.input{
+    width: 40px;
+    border: 2px solid #678CA5;
+    background-color: #97B8CE;
+    border-radius: 8px;
+    padding: 0 4px;
 }

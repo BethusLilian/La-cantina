@@ -13,4 +13,8 @@ describe('GenerationRepasService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should create meal object', ()=>{
+    expect(service.generateOneMeal()).toBeDefined()
+  })
 });

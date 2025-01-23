@@ -11,7 +11,15 @@ export class GenerationRepasService {
 
   constructor() { }
 
-  generateMeal() : Meal {
+  generateManyMeal(number : number) : Meal[]{
+    let generatedMeals : Meal[] = []
+    for(let i = 0; i< number; i++){
+      generatedMeals.push(this.generateOneMeal())
+    }
+    return generatedMeals
+  }
+
+  generateOneMeal() : Meal {
     const protein = this.getRandomItem(ingredient.Proteines);
     const legume = this.getRandomItem(ingredient.Legumes);
     const feculent = this.getRandomItem(ingredient.Feculents);

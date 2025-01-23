@@ -1,15 +1,27 @@
 <div id="accueil">
-    @if(this.generatedMeal){
-    <div class="repas">
-        <h3>Vous pouvez faire un repas avec les ingrédients suivants :</h3>
-        <p>{{ this.generatedMeal.protein }}</p>
-        <p>{{ this.generatedMeal.legume }}</p>
-        <p>{{ this.generatedMeal.feculent }}</p>
-        <p>Bonus : {{ this.generatedMeal.autre }}</p>
+    @if(this.generatedMeals.length >= 1){
+    <div class="repasContainer">
+        <h3>Vous pouvez faire {{this.generatedMeals.length}} repas avec les ingrédients suivants :</h3>
+        <div class="listeRepas">
+        @for(meal of this.generatedMeals; track $index){
+            <div class="repas">
+                <h3>Repas {{$index + 1}}</h3>
+                <p>{{ meal.protein }}</p>
+                <p>{{ meal.legume }}</p>
+                <p>{{ meal.feculent }}</p>
+                <p>Bonus : {{ meal.autre }}</p>
+            </div>
+        }
+        </div>
+       
     </div>
+    <p>Ça ne vous convient pas ?</p>
     }
     
-    <p>Cliquer sur le bouton pour génerer un repas.</p>
+    <p>
+        <span>Cliquer sur le bouton pour génerer </span>
+        <input type="number" class="input" [(ngModel)]="mealsNumber" (keyup.enter)="generateMeals()">
+        <span> repas.</span></p>
     <br>
-    <button (click)="generateMeal()">Générer !</button>
+    <button (click)="generateMeals()" >Générer !</button>
 </div>

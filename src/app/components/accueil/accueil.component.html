@@ -1,0 +1,45 @@
+<div class="my-12 mx-4 flex flex-col gap-y-8 text-center text-[#19180C] sm:mx-16 lg:mx-32 xl-96 2xl:mx-112">
+    <h1>La Cantina</h1>
+
+
+    @if(this.generatedMeals.length >= 1){
+    <div>
+        <div class="flex flex-col gap-y-8">
+            <h3>Vous pouvez faire {{this.generatedMeals.length}} repas avec les ingrédients suivants :</h3>
+            <div class="flex flex-row gap-4 overflow-x-scroll  md:overflow-auto  md:flex-wrap md:justify-center">
+            @for(meal of this.generatedMeals; track $index){
+                <div class="bg-[#97B8CE25] px-6 py-4 rounded-md flex flex-col gap-y-4 min-w-40">
+                    <h3 class="break-words">Repas {{$index + 1}}</h3>
+                    <div class="flex flex-col gap-y-2">
+                        <p>{{ meal.protein }}</p>
+                        <p>{{ meal.legume }}</p>
+                        <p>{{ meal.feculent }}</p>
+                        <p class="text-[#19180C90]">+ {{ meal.autre }}</p>
+                    </div>
+                </div>
+            }
+            </div>
+           
+        </div>
+        <br>
+        <br>
+        <p>Ça ne vous convient pas ?</p>
+    </div>  
+    } @else {
+        <p>Bienvenu sur la Cantina, un générateur d’idée repas</p>
+        <p>(un peu aléatoire pour le moment)</p>
+    }
+    <div class="flex flex-col gap-y-4 items-center">  
+        <p>
+            <span class="font-semibold">Génerer </span>
+            <input type="number" min="1" class="input" [(ngModel)]="mealsNumber" 
+                (keyup.enter)="generateMeals()"
+                (keypress)="checkMealsNumber()"
+                (focusout)="checkMealsNumber()"
+            >
+            <span class="font-semibold"> repas.</span>
+        </p>
+        <button (click)="generateMeals()" >C'est parti !</button>
+    </div>
+</div>
+

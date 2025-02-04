@@ -1,0 +1,55 @@
+{
+  "Proteines": [
+    "poulet",
+    "boeuf",
+    "saucisses",
+    "porc",
+    "saumon",
+    "thon",
+    "tofu",
+    "dinde",
+    "agneau",
+    "oeufs",
+    "crevettes",
+    "canard"
+  ],
+  "Legumes": [
+    "brocoli",
+    "courgette",
+    "carottes",
+    "courge",
+    "celeri",
+    "epinard",
+    "haricot vert",
+    "poivron",
+    "chou-fleur",
+    "champignon",
+    "aubergine",
+    "asperge"
+  ],
+  "Feculents": [
+    "pâtes",
+    "riz",
+    "pomme de terre",
+    "patate douce",
+    "pain",
+    "semoule",
+    "quinoa",
+    "lentilles",
+    "pois chiches",
+    "boulgour",
+    "polenta"
+  ],
+  "Autres": [
+    "tomate",
+    "salade",
+    "maïs",
+    "oignon",
+    "avocat",
+    "ail",
+    "échalote",
+    "radis",
+    "concombre",
+    "betterave"
+  ]
+}

@@ -17,8 +17,13 @@ h3{
     font-weight: 600;
 }
 
-button {
-    background-color: #ADAA52;
+h2{
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.button {
+    background-color: #A3D270;
     border: none;
     padding: 12px 32px;
     border-radius: 8px;
@@ -33,6 +38,11 @@ button:hover{
 
 button:active{
     box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0);
+}
+
+.button:disabled{
+    box-shadow: none;
+    background-color: #A3D27050;
 }
 
 .test{

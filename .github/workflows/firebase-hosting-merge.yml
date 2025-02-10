@@ -6,12 +6,29 @@ on:
   push:
     branches:
       - main
+
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npm ci && npm run build
+
+      - name: Inject API Key into environment.prod.ts
+        run: |
+          echo "export const environment = {" > src/environments/environment.prod.ts
+          echo "  production: true," >> src/environments/environment.prod.ts
+          echo "  geminiApiKey: '${{ secrets.GEMINI_API_KEY }}'" >> src/environments/environment.prod.ts
+          echo "};" >> src/environments/environment.prod.ts
+
+      - run: rm -rf node_modules package-lock.json
+
+      - run: npm install
+
+      - name: Ensure Tailwind CSS dependencies are installed
+        run: npm rebuild @tailwindcss/oxide
+
+      - run: npm ci --force && npm run build --configuration=production
+
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}

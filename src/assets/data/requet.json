@@ -1,0 +1,16 @@
+{
+    "titre":  "",
+    "temps_preparation": "",
+    "temps_cuisson": "",
+    "nombre_personnes": "",
+    "ingredient" : [
+        {
+            "nom" : "",
+            "quantité" :""
+        }
+    ],
+    "instruction" : [
+        "",
+        ""
+    ]
+}

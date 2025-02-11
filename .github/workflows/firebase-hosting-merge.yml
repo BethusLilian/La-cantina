@@ -15,10 +15,14 @@ jobs:
 
       - name: Inject API Key into environment.prod.ts
         run: |
-          echo "export const environment = {" > src/environments/environment.prod.ts
-          echo "  production: true," >> src/environments/environment.prod.ts
-          echo "  geminiApiKey: '${{ secrets.GEMINI_API_KEY }}'" >> src/environments/environment.prod.ts
-          echo "};" >> src/environments/environment.prod.ts
+          echo "export const environment = {production: true,geminiApiKey: '${{ secrets.GEMINI_API_KEY }}'};" > src/environments/environment.ts
+      
+      - name: Upload environment file
+        uses: actions/upload-artifact@v4
+        with:
+          name: environment-prod
+          path: src/environments/environment.prod.ts
+
 
       - run: rm -rf node_modules package-lock.json
 
